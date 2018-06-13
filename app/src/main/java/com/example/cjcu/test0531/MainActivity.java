@@ -84,11 +84,9 @@ public class MainActivity extends AppCompatActivity {
                 trans.add(p);
             }while(c.moveToNext());
         }
-        Log.d("trans size",String.valueOf(trans.size()));
         TransactionAdapter adapter = new TransactionAdapter(trans);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
     }
 
 
