@@ -9,6 +9,8 @@ public class Person {
     private String info;
     private int amount;
 
+
+
     public Person(String cdate, String ingo, int amount) {
         this.cdate = cdate;
         this.info = ingo;

@@ -35,7 +35,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         Person person = trans.get(position);
         holder.item_cdate.setText(person.getCdate());
         holder.item_info.setText(person.getIngo());
-        holder.item_amount.setText(person.getAmount());
+        holder.item_amount.setText(String.valueOf(person.getAmount()));
     }
 
     @Override
