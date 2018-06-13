@@ -21,6 +21,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private ListView list;
+    private RecyclerView recyclerView;
     private MyDBHelper helper;
 
     @Override
@@ -65,19 +66,21 @@ public class MainActivity extends AppCompatActivity {
         list.setAdapter(simpleCursorAdapter);
     }
 
-    private void  myview() {
-
+    private void myview() {
+        recyclerView = findViewById(R.id.recyclerview);
         List<Person> trans = new LinkedList<>();
-        RecyclerView rv = findViewById(R.id.recyclerview);
+        Person p;
         helper = MyDBHelper.getInstance(this);
         Cursor c = helper.getReadableDatabase()
                 .query("exp",null,null,null,null,null,null);
-
-        Person person;
-        if(c.moveToFirst()){
+        if(c.moveToFirst()) {
             do {
-
-            } while(c.moveToNext());
+                p = new Person();
+                p.setCdate(c.getString(c.getColumnIndex(cdate)));
+                p.setIngo(c.getString(c.getColumnIndex(info)));
+                p.setAmount(c.getString(c.getColumnIndex(amount)));
+                trans.add(p);
+            }while(c.moveToNext());
         }
 
     }
